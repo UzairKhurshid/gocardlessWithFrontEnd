@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Subscriptions</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/gocardless.css">
+    </head>
+    <body style="background-color: black;">
+        <div class="container">
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><h1>GoCardless</h1></a>
+                
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+
+                    <li class="nav-item" style="margin-top: 40px;margin-left:20px;font-size: 20px;color:white;">
+                        <a class="nav-link" href="/myProducts">My Products</a>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 colImg">
+                    {{#if subscription}}
+                        {{#each subscription}}
+                        <div class="sub">
+                            <h2>Name of subscription : {{this.name}}</h2>
+                            <h3>Amount               : {{this.amount}}</h3>
+                            <h3>currency               : {{this.currency}}</h3>
+                            <h3>interval               : {{this.interval}}</h3>
+                            <h3>interval_unit               : {{this.interval_unit}}</h3>
+                            <h3>day_of_month               : {{this.day_of_month}}</h3>
+                            <a  href="/gocardlessSubscription/{{this._id}}"><button class="btn btn-primary">Subscribe</button></a>
+                        </div>
+                        {{/each}}
+                    {{else}}
+                        <p> No subscription Available </p>
+                    {{/if}}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Subscription Details</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/gocardless.css">
+    </head>
+    <body style="background-color: black;">
+        <div class="container">
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><h1>GoCardless</h1></a>
+                
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+
+                    
+                    
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 colImg">
+                    {{#if subscription}}
+                        <div class="sub">
+                            <h2>Name of subscription : {{subscription.name}}</h2>
+                            <h3>Amount               : {{subscription.amount}}</h3>
+                            <h3>currency               : {{subscription.currency}}</h3>
+                            <h3>interval               : {{subscription.interval}}</h3>
+                            <h3>interval_unit               : {{subscription.interval_unit}}</h3>
+                            <h3>day_of_month               : {{subscription.day_of_month}}</h3>
+                            <h1>Status                     :{{status}}</h1>
+                            <a  href="/gocardlessCancelSubscription"><button class="btn btn-primary">Cancel Subscription</button></a>
+                        </div>
+                    {{else}}
+                        <p> No subscription Available </p>
+                    {{/if}}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+
+        
+    </body>
+</html>

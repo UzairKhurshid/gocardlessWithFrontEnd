@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/gocardless.css">
+    </head>
+    <body>
+        <div class="container">
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/"><h1>GoCardless</h1></a>
+                
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myProducts">My Products</a>
+                    </li>
+
+                    {{#if status}}
+                        {{#if subscription}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/gocardlessSubscriptionDetails">My Subscription</a>
+                            </li>
+                        {{else}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/subscription">Subscribe</a>
+                            </li>
+                        {{/if}}
+                    {{else}}    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gocardlessCreateUser">Add Bank Details</a>
+                        </li>
+                    {{/if}}
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 colImg">
+                    {{#if products}}
+                        {{#each products}}
+                            <div class="productHeader">
+                                <h1>{{this.name}}</h1>
+                            </div>
+                            <div class="productBody">
+                                <img src="images/product2.JPG" height="300px" width="360px">
+                                </div>
+                            <div class="productFooter">
+                                <h3>{{this.price}}  £</h3>
+                                {{#if ...status}}
+                                    <a href="/gocardlessPayment/{{this._id}}"><button class="btn btn-primary btnImg">Buy Product</button></a>
+                                {{/if}}
+                            </div>
+                        {{/each}}
+                    {{else}}
+                        <div class="productHeader">
+                            <h1>Product</h1>
+                        </div>
+                        <div class="productBody">
+                            <img src="images/product2.JPG" height="400px" width="460px">
+                        </div>
+                        <div class="productFooter">
+                            <h3>Price</h3>
+                            <a href="#"><button class="btn btn-primary btnImg">Buy Product</button></a>
+                        </div>
+                    {{/if}}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </body>
+</html>
